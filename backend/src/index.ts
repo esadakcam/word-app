@@ -8,8 +8,8 @@ const port = process.env.PORT;
 
 app.use(express.static(path.join(__dirname, '../../dist')));
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server sss ');
+app.get('/api', (req: Request, res: Response) => {
+  res.send('Hello from Express!');
 });
 
 app.listen(port, () => {
