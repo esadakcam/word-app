@@ -1,20 +1,38 @@
-import React, { useState, useEffect } from "react";
-import { Card } from "antd";
+import { useState, useEffect } from "react";
 import { WordEntry } from "../../types/global";
 import { WordCard } from "../components/WordCard";
+import { useQuery } from "@tanstack/react-query";
+import { Button, Flex } from "antd";
 export const WordPage = () => {
-  const [word, setWord] = useState<WordEntry | null>(null);
-  const [loading, setLoading] = useState(true);
   const [requestNew, setRequestNew] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const { isPending, isError, data, error, refetch } = useQuery({
+    queryKey: ["word"],
+    queryFn: async () => {
       const response = await fetch("/api/words/random");
-      const data = await response.json();
-      setWord(data);
-      setLoading(false);
-    };
-    fetchData();
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      setRequestNew(false);
+      return response.json() as Promise<WordEntry>;
+    },
+  });
+
+  useEffect(() => {
+    refetch();
   }, [requestNew]);
-  return <WordCard word={word!} isLoading={loading}></WordCard>;
+
+  if (isError) {
+    return <div>{error.message}</div>;
+  }
+  return (
+    <>
+      <Flex vertical align="center" justify="center">
+        <WordCard word={data} isLoading={isPending}></WordCard>
+        <Button type="primary" onClick={() => setRequestNew(true)}>
+          New Word
+        </Button>
+      </Flex>
+    </>
+  );
 };
