@@ -7,10 +7,10 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT;
 
-app.use(express.static(path.join(__dirname, '../../dist')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get(['/words', '/phrases'], (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, '../../dist/index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.get('/api/words/random', (req: Request, res: Response) => {
