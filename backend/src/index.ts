@@ -9,6 +9,10 @@ const port = process.env.PORT;
 
 app.use(express.static(path.join(__dirname, '../../dist')));
 
+app.get(['/words', '/phrases'], (req: Request, res: Response) => {
+  res.sendFile(path.join(__dirname, '../../dist/index.html'));
+});
+
 app.get('/api/words/random', (req: Request, res: Response) => {
   const randomIndex = Math.floor(Math.random() * 5942);
   const word = getWord(randomIndex);
