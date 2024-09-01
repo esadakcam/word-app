@@ -23,7 +23,7 @@ export const WordCard = ({ word, isLoading }: WordCardProps) => {
           />,
         ]}
         loading={isLoading}
-        style={{ width: 500, margin: "60px" }}
+        style={{ width: "calc(100vw - 100px)", maxWidth: 500, margin: "60px" }}
       >
         <Card.Meta
           title={
