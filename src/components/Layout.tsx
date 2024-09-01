@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Menu } from "antd";
 import type { MenuProps } from "antd";
 
@@ -22,12 +22,16 @@ export const Layout = () => {
   const onClick: MenuProps["onClick"] = (e) => setCurrentPage(e.key);
   const location = useLocation();
   const { pathname } = location;
+  const navigate = useNavigate();
   useEffect(() => {
     if (pathname === "/") {
+      navigate("/words");
+    } else if (pathname === "/words") {
       setCurrentPage("words");
     } else {
       setCurrentPage("phrases");
     }
+    console.log(pathname);
   }, [pathname]);
 
   return (

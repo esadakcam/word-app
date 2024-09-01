@@ -1,7 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Layout } from "./pages/Layout";
+import { Layout } from "./components/Layout";
+import { WordPage } from "./pages/WordPage";
 
 const router = createBrowserRouter([
   {
@@ -10,7 +11,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "words",
-        element: <div>Words</div>,
+        element: <WordPage />,
       },
       {
         path: "phrases",
