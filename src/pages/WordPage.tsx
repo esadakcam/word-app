@@ -6,7 +6,7 @@ import { Button, Flex } from "antd";
 export const WordPage = () => {
   const [requestNew, setRequestNew] = useState(false);
 
-  const { isPending, isError, data, error, refetch } = useQuery({
+  const { isPending, isError, data, error, refetch, isRefetching } = useQuery({
     queryKey: ["word"],
     queryFn: async () => {
       const response = await fetch("/api/words/random");
@@ -28,7 +28,7 @@ export const WordPage = () => {
   return (
     <>
       <Flex vertical align="center" justify="center">
-        <WordCard word={data} isLoading={isPending}></WordCard>
+        <WordCard word={data} isLoading={isPending || isRefetching}></WordCard>
         <Button type="primary" onClick={() => setRequestNew(true)}>
           New Word
         </Button>
