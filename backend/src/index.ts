@@ -9,11 +9,11 @@ const port = process.env.PORT;
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.get(['/words', '/phrases'], (req: Request, res: Response) => {
+app.get(['/wordapp/words', '/phrases'], (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
-app.get('/api/words/random', (req: Request, res: Response) => {
+app.get('/wordapp/api/words/random', (req: Request, res: Response) => {
   const randomIndex = Math.floor(Math.random() * 5942);
   const word = getWord(randomIndex);
   res.json(word);

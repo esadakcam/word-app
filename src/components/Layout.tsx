@@ -6,12 +6,12 @@ import { useEffect, useState } from "react";
 
 const menuItems = [
   {
-    label: <Link to="/words">Words</Link>,
+    label: <Link to="/wordapp/words">Words</Link>,
     key: "words",
     title: "Words",
   },
   {
-    label: <Link to="/phrases">Phrases</Link>,
+    label: <Link to="/wordapp/phrases">Phrases</Link>,
     key: "phrases",
     title: "Phrases",
   },
@@ -23,16 +23,25 @@ export const Layout = () => {
   const location = useLocation();
   const { pathname } = location;
   const navigate = useNavigate();
+
   useEffect(() => {
-    if (pathname === "/") {
-      navigate("/words");
-    } else if (pathname === "/words") {
-      setCurrentPage("words");
-    } else {
-      setCurrentPage("phrases");
+    switch (pathname) {
+      case "/":
+      case "/wordapp/":
+      case "/wordapp":
+        navigate("/wordapp/words");
+        break;
+      case "/wordapp/words":
+        setCurrentPage("words");
+        break;
+      case "/wordapp/phrases":
+        setCurrentPage("phrases");
+        break;
+      default:
+        setCurrentPage("words");
+        break;
     }
-    console.log(pathname);
-  }, [pathname]);
+  }, [pathname, navigate]);
 
   return (
     <>

@@ -7,7 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/wordapp",
     element: <Layout />,
     children: [
       {
