@@ -9,7 +9,7 @@ export const WordPage = () => {
   const { isPending, isError, data, error, refetch, isRefetching } = useQuery({
     queryKey: ["word"],
     queryFn: async () => {
-      const response = await fetch("/api/words/random");
+      const response = await fetch("/wordapp/api/words/random");
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

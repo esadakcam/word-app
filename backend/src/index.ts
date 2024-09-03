@@ -13,6 +13,8 @@ app.get(['/wordapp/words', '/phrases'], (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
+app.use('/wordapp/assets', express.static(path.join(__dirname, '..', 'public', 'assets')));
+
 app.get('/wordapp/api/words/random', (req: Request, res: Response) => {
   const randomIndex = Math.floor(Math.random() * 5942);
   const word = getWord(randomIndex);
