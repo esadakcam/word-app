@@ -26,7 +26,6 @@ export const Layout = () => {
 
   useEffect(() => {
     switch (pathname) {
-      case "/":
       case "/wordapp/":
       case "/wordapp":
         navigate("/wordapp/words");
