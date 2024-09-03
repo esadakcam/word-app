@@ -15,10 +15,6 @@ const router = createBrowserRouter([
         element: <WordPage />,
       },
       {
-        path: "phrases",
-        element: <div>Phrases</div>,
-      },
-      {
         path: "*",
         element: <div>No such route exists</div>,
       },
