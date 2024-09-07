@@ -17,7 +17,6 @@ const cefrLevels = [
   { label: "B1", key: "b1" },
   { label: "B2", key: "b2" },
   { label: "C1", key: "c1" },
-  { label: "C2", key: "c2" },
 ];
 
 const siderItems: MenuProps["items"] = order.map((ord) => {
