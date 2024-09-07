@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { WordEntry } from "../../types/global";
 import { WordCard } from "../components/WordCard";
 import { useQuery } from "@tanstack/react-query";
-import { Button, Flex, Layout, Menu, MenuProps, Radio } from "antd";
+import { Button, Flex, Layout, Menu, MenuProps } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 
