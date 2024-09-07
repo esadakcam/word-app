@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { WordEntry } from "../../types/global";
-import { Card } from "antd";
-import { EllipsisOutlined } from "@ant-design/icons";
+import { Button, Card } from "antd";
+import { DownOutlined, EllipsisOutlined, UpOutlined } from "@ant-design/icons";
 
 type WordCardProps = {
   word: WordEntry | undefined;
@@ -17,10 +17,14 @@ export const WordCard = ({ word, isLoading }: WordCardProps) => {
     <>
       <Card
         actions={[
-          <EllipsisOutlined
-            key="ellipsis"
+          <Button
+            key="toggle"
+            type="link"
+            icon={showDefinition ? <UpOutlined /> : <DownOutlined />}
             onClick={() => setShowDefinition((prv) => !prv)}
-          />,
+          >
+            {showDefinition ? "Hide Definition" : "Show Definition"}
+          </Button>,
         ]}
         loading={isLoading}
         style={{ width: "calc(100vw - 100px)", maxWidth: 500, margin: "60px" }}
