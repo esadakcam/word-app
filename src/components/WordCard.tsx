@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { WordEntry } from "../../types/global";
 import { Button, Card } from "antd";
-import { DownOutlined, EllipsisOutlined, UpOutlined } from "@ant-design/icons";
+import { DownOutlined, UpOutlined } from "@ant-design/icons";
 
 type WordCardProps = {
   word: WordEntry | undefined;
