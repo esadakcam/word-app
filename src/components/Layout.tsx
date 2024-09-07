@@ -4,7 +4,7 @@ import { Flex } from "antd";
 import { useEffect, useState } from "react";
 
 export const Layout = () => {
-  const [currentPage, setCurrentPage] = useState("words");
+  const [_, setCurrentPage] = useState("words");
   const location = useLocation();
   const { pathname } = location;
   const navigate = useNavigate();
