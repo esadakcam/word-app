@@ -6,9 +6,12 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT;
-const cefrLevels = ['a1', 'a2', 'b1', 'b2', 'c1'];
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
+
+app.get('/wordapp', (req: Request, res: Response) => {
+  res.redirect('/wordapp/words');
+});
 
 app.get(['/wordapp/words', '/phrases'], (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
