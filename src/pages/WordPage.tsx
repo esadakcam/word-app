@@ -57,38 +57,23 @@ export const WordPage = () => {
   }
   return (
     <>
-      <Layout style={{}}>
-        <Sider width={150} theme="light" collapsed={collapsed}>
-          <Flex>
-            <div
-              style={{
-                padding: "16px",
-                fontWeight: "bold",
-                fontSize: "16px",
-                textAlign: "center",
-              }}
-            >
-              Order
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                padding: "0 16px",
-                borderBottom: "1px solid #f0f0f0",
-              }}
-            >
-              <Button
-                type="text"
-                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                onClick={() => {
-                  setCollapsed(!collapsed);
-                  localStorage.setItem("collapsed", (!collapsed).toString());
-                }}
-              />
-            </div>
-          </Flex>
+      <Layout>
+        <Sider
+          width={150}
+          theme="light"
+          collapsed={collapsed}
+          collapsedWidth={0}
+        >
+          <div
+            style={{
+              padding: "16px",
+              fontWeight: "bold",
+              fontSize: "16px",
+              textAlign: "center",
+            }}
+          >
+            Order
+          </div>
           <Menu
             mode="inline"
             defaultSelectedKeys={[orderBy]}
@@ -100,6 +85,14 @@ export const WordPage = () => {
             }}
           />
         </Sider>
+        <Button
+          type="text"
+          icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          onClick={() => {
+            setCollapsed(!collapsed);
+            localStorage.setItem("collapsed", (!collapsed).toString());
+          }}
+        />
         <Layout>
           <Flex
             vertical

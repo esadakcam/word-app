@@ -27,7 +27,7 @@ export const WordCard = ({ word, isLoading }: WordCardProps) => {
           </Button>,
         ]}
         loading={isLoading}
-        style={{ width: "calc(100vw - 100px)", maxWidth: 500, margin: "60px" }}
+        style={{ width: "calc(100vw - 150px)", maxWidth: 500, margin: "60px" }}
       >
         <Card.Meta
           title={
